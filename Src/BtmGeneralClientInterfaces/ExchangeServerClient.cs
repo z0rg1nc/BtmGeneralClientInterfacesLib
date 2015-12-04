@@ -281,7 +281,7 @@ namespace BtmI2p.GeneralClientInterfaces
 	    public class GetNewBaseRequest
 	    {
 			public DateTime StartTime { get; set; }
-			public int MaxBufferCount { get; set; }
+	        public int MaxBufferCount { get; set; } = 100;
 
 		    public void CheckMe()
 		    {
@@ -299,17 +299,14 @@ namespace BtmI2p.GeneralClientInterfaces
             public ExchangeSubscribeClientEventsRequest()
             {
                 MaxBufferCount = 100;
-                MaxBufferSeconds = 3;
-#if DEBUG
-                TimeoutSeconds = 5;
-#else
-                TimeoutSeconds = 60*3;
-#endif
             }
 			
             public Guid LastKnownEventGuid { get; set; }
-            public int MaxBufferSeconds { get; set; }
-            public int TimeoutSeconds { get; set; }
+		    public int MaxBufferSeconds { get; set; } = 3;
+            public int TimeoutSeconds { get; set; } 
+                = ClientLifecycleEnvironment.LifeCycle == ELifeCycle.Dev
+                    ? 5
+                    : 180;
             public new void CheckMe()
             {
 				base.CheckMe();

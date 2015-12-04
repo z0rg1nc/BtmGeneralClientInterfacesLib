@@ -15,9 +15,9 @@
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup>
-    <MyDefineConstants>BTM_LIFECYCLE_DEV</MyDefineConstants>
-    <!-- <MyDefineConstants>BTM_LIFECYCLE_STAGE</MyDefineConstants>-->
-    <!-- <MyDefineConstants>BTM_LIFECYCLE_PRODUCTION</MyDefineConstants>-->
+    <!-- <MyDefineConstants>BTM_LIFECYCLE_DEV</MyDefineConstants> -->
+    <!-- <MyDefineConstants>BTM_LIFECYCLE_STAGE</MyDefineConstants> -->
+    <MyDefineConstants>BTM_LIFECYCLE_PRODUCTION</MyDefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

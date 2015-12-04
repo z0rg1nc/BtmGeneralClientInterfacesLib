@@ -626,20 +626,14 @@ namespace BtmI2p.GeneralClientInterfaces
 
         public class MessageSubscribeClientEventsRequest : ICheckable
         {
-            public MessageSubscribeClientEventsRequest()
-            {
-#if DEBUG
-                TimeoutSeconds = 5;
-#else
-                TimeoutSeconds = 180;
-#endif
-            }
-
             public DateTime StartTime { get; set; }
             public Guid LastKnownEventGuid { get; set; }
             public int MaxBufferCount { get; set; } = 100;
             public int MaxBufferSeconds { get; set; } = 3;
             public int TimeoutSeconds { get; set; }
+                = ClientLifecycleEnvironment.LifeCycle == ELifeCycle.Dev
+                    ? 5
+                    : 180;
             public void CheckMe()
             {
                 Assert.InRange(

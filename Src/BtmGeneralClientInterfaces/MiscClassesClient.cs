@@ -42,17 +42,17 @@ namespace BtmI2p.GeneralClientInterfaces
             }
         };
 #if BTM_LIFECYCLE_DEV
-        public static ELifeCycle LifeCycle = ELifeCycle.Dev;
+        public static ELifeCycle LifeCycle => ELifeCycle.Dev;
         public static List<string> ProxyServerDestinations 
             => DevConstants.ProxyServerDestinations;
         public static string TitlesPrefix => "**** DEVENV **** ";
 #elif BTM_LIFECYCLE_STAGE
-        public static ELifeCycle LifeCycle = ELifeCycle.Stage;
+        public static ELifeCycle LifeCycle => ELifeCycle.Stage;
         public static List<string> ProxyServerDestinations 
             => StageConstants.ProxyServerDestinations;
         public static string TitlesPrefix => "**** STAGEENV **** ";
 #elif BTM_LIFECYCLE_PRODUCTION
-        public static ELifeCycle LifeCycle = ELifeCycle.Production;
+        public static ELifeCycle LifeCycle => ELifeCycle.Production;
         public static List<string> ProxyServerDestinations 
             => ReleaseConstants.ProxyServerDestinations;
         public static string TitlesPrefix => "";
